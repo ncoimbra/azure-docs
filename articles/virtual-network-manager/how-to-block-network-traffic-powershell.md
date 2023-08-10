@@ -69,7 +69,7 @@ Before you start configuring security rules, confirm the following steps:
     [System.Collections.Generic.List[Microsoft.Azure.Commands.Network.Models.PSNetworkManagerSecurityGroupItem]]$configGroup = @()  
     $configGroup.Add($groupItem) 
 
-    $configGroup = @($groupItem)
+
     ```
 
 1. Create a security admin rules collection with New-AzNetworkManagerSecurityAdminRuleCollection.
@@ -80,9 +80,9 @@ Before you start configuring security rules, confirm the following steps:
         ResourceGroupName = 'myAVNMResourceGroup'
         NetworkManager = 'myAVNM'
         ConfigName = 'SecurityConfig'
-        AppliesToGroup = "$configGroup"
+        AppliesToGroup = $configGroup
     }
-    $rulecollection = New-AzNetworkManagerSecurityAdminRuleCollection @collection -AppliesToGroup $configGroup
+    $rulecollection = New-AzNetworkManagerSecurityAdminRuleCollection @collection
     ```
 
 1. Define the variables for the source and destination address prefixes and ports with New-AzNetworkManagerAddressPrefixItem.
